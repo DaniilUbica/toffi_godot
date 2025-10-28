@@ -1,8 +1,7 @@
-extends CharacterBody2D
+extends BaseCharacter2D
 
-@export var speed: int = 500
-@export var acceleration: float = 1500
-@export var friction: float = 2000
+@export var acceleration: float = 1500.0
+@export var friction: float = 2000.0
 
 @onready var animated_sprite = $AnimatedSprite2D
 
