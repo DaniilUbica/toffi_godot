@@ -5,7 +5,7 @@ extends Node2D
 @export var weapon_collision_layers: Array[int] = [1]
 @export var weapon_attack_range: int = 100
 
-@onready var timer = $Timer
+@onready var timer = $ReloadTimer
 @onready var enemies_spawner = $"/root/main/EnemiesSpawner"
 
 var shoot_sheduled: bool = false

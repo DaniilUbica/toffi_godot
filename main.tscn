@@ -1,12 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://cquwnegnawjwn"]
+[gd_scene load_steps=25 format=3 uid="uid://cquwnegnawjwn"]
 
 [ext_resource type="Script" uid="uid://ciibb0wt84j0y" path="res://scripts/player.gd" id="1_7mycd"]
 [ext_resource type="Texture2D" uid="uid://dedocpg5mnfh5" path="res://assets/idle.png" id="2_7mycd"]
 [ext_resource type="Texture2D" uid="uid://ormqioqmvvqu" path="res://assets/run.png" id="3_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cqsm87lvq51c8" path="res://assets/border.png" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://cc654kxng3kq6" path="res://scripts/camera_2d.gd" id="4_272bh"]
-[ext_resource type="Script" uid="uid://cry4k11b2pgx8" path="res://scripts/weapon/range_weapon.gd" id="5_kek77"]
-[ext_resource type="PackedScene" uid="uid://dy2flcuv200qk" path="res://bullet.tscn" id="6_4c57u"]
 [ext_resource type="Script" uid="uid://bcqc2gvd2rrf" path="res://scripts/world.gd" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://dfendupc4xwa7" path="res://scripts/enemies/enemies_spawner.gd" id="7_272bh"]
 [ext_resource type="PackedScene" uid="uid://dopfhixj5gprc" path="res://enemy.tscn" id="9_kek77"]
@@ -143,9 +141,7 @@ position = Vector2(0.33332825, 0)
 script = ExtResource("4_272bh")
 
 [node name="RangeWeapon" type="Node2D" parent="Player"]
-script = ExtResource("5_kek77")
-bullet_scene = ExtResource("6_4c57u")
-weapon_collision_layers = Array[int]([2])
+visible = false
 
 [node name="Timer" type="Timer" parent="Player/RangeWeapon"]
 
