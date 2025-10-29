@@ -4,10 +4,10 @@ extends TileMapLayer
 
 const wall_tile_coords: Vector2i = Vector2i(0, 0)
 
-func _ready():
+func _ready() -> void:
 	create_border_walls()
 
-func create_border_walls():
+func create_border_walls() -> void:
 	clear()
 	
 	for x in range(world_size.x):

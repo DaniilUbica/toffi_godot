@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://uautdtqxdoet"]
+
+[ext_resource type="Script" uid="uid://cry4k11b2pgx8" path="res://scripts/weapon/range_weapon.gd" id="1_w5oes"]
+
+[node name="RangeWeapon" type="Node2D"]
+script = ExtResource("1_w5oes")
+
+[node name="ReloadTimer" type="Timer" parent="."]
