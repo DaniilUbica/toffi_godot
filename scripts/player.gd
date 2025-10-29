@@ -12,6 +12,8 @@ var range_weapon: Node2D
 func _ready() -> void:
 	animated_sprite.play("idle")
 	attack_range = player_attack_range
+	
+	init_range_weapon()
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO

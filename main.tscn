@@ -140,11 +140,6 @@ frame_progress = 0.15901393
 position = Vector2(0.33332825, 0)
 script = ExtResource("4_272bh")
 
-[node name="RangeWeapon" type="Node2D" parent="Player"]
-visible = false
-
-[node name="Timer" type="Timer" parent="Player/RangeWeapon"]
-
 [node name="WallsLayer" type="TileMapLayer" parent="."]
 tile_set = SubResource("TileSet_272bh")
 script = ExtResource("6_5vw27")
