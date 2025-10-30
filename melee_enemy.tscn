@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://dopfhixj5gprc"]
 
-[ext_resource type="Script" uid="uid://wb520wuqpukp" path="res://scripts/enemies/enemy.gd" id="1_7k104"]
+[ext_resource type="Script" uid="uid://wb520wuqpukp" path="res://scripts/enemies/melee_enemy.gd" id="1_7k104"]
 [ext_resource type="Texture2D" uid="uid://8ntltry2eplu" path="res://assets/eye_flight.png" id="2_4gyqm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qi2p4"]
@@ -70,7 +70,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="MeleeEnemy" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_7k104")

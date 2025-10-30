@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://cc654kxng3kq6" path="res://scripts/camera_2d.gd" id="4_272bh"]
 [ext_resource type="Script" uid="uid://bcqc2gvd2rrf" path="res://scripts/world.gd" id="6_5vw27"]
 [ext_resource type="Script" uid="uid://dfendupc4xwa7" path="res://scripts/enemies/enemies_spawner.gd" id="7_272bh"]
-[ext_resource type="PackedScene" uid="uid://dopfhixj5gprc" path="res://enemy.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://dopfhixj5gprc" path="res://melee_enemy.tscn" id="9_kek77"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(133, 105)
@@ -151,3 +151,5 @@ enemy_scene = ExtResource("9_kek77")
 
 [node name="Timer" type="Timer" parent="EnemiesSpawner"]
 wait_time = 3.0
+
+[node name="HUDLayer" type="CanvasLayer" parent="."]

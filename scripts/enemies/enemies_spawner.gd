@@ -2,12 +2,13 @@ extends Node2D
 
 @export var enemy_scene: PackedScene
 @export var spawn_rate: float = 2.0
-@export var spawn_radius: float = 100.0
+@export var spawn_radius: float = 1000.0
 
 @onready var timer = $Timer
-@onready var player = $"/root/main/Player"
+@onready var player = $"/root/main/Player" as BaseCharacter2D
 
 var spawned_enemies = []
+var spawn_min_radius: float = 700.0
 
 func _ready() -> void:
 	timer.wait_time = spawn_rate
@@ -15,6 +16,7 @@ func _ready() -> void:
 	timer.start()
 	
 func _process(_delta: float) -> void:
+	global_position = player.global_position
 	var i = 0
 	while i < spawned_enemies.size():
 		var enemy = spawned_enemies[i]
@@ -31,7 +33,7 @@ func spawn_enemy() -> void:
 	var enemy = enemy_scene.instantiate()
 	
 	var random_angle = randf() * 2 * PI
-	var random_distance = randf() * spawn_radius
+	var random_distance = max(randf() * spawn_radius, spawn_min_radius)
 	var spawn_position = Vector2(
 		cos(random_angle) * random_distance, 
 		sin(random_angle) * random_distance

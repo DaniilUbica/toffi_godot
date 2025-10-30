@@ -17,3 +17,6 @@ func create_border_walls() -> void:
 	for y in range(1, world_size.y - 1):
 		set_cell(Vector2i(0, y), 0, wall_tile_coords)
 		set_cell(Vector2i(world_size.x - 1, y), 0, wall_tile_coords)
+
+func get_world_size() -> Vector2i:
+	return world_size
