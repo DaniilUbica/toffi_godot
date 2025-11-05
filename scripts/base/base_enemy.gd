@@ -10,6 +10,7 @@ var enemy_attack_range := 100
 var enemy_speed := 300.0
 
 var _can_attack := false
+var _is_attacking := false
 
 @abstract func attack() -> void
 
@@ -22,6 +23,16 @@ func _ready() -> void:
 	init_attack_timer()
 
 func _physics_process(_delta) -> void:
+	if current_health <= 0:
+		enemy_attack_timer.stop()
+		_can_attack = false
+		return
+	
+	if _is_attacking:
+		var direction = (player.global_position - global_position).normalized()
+		animated_sprite.flip_h = direction.x < 0
+		return
+
 	if player && global_position.distance_to(player.global_position) > attack_range:
 		var direction = (player.global_position - global_position).normalized()
 		velocity = direction * speed

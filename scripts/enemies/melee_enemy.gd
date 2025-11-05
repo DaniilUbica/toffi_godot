@@ -8,4 +8,6 @@ func _ready() -> void:
 	current_health = melee_enemy_max_health
 	
 func attack() -> void:
+	animated_sprite.play("attack")
+	await animated_sprite.animation_finished
 	player.take_damage(melee_enemy_attack_damage)

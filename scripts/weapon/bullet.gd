@@ -3,7 +3,7 @@ extends Area2D
 @export var speed: float = 1500.0
 @export var damage: int = 10
 
-var direction: Vector2 = Vector2.RIGHT
+var direction: Vector2 = Vector2.LEFT
 
 func _ready() -> void:
 	body_entered.connect(_on_body_entered)

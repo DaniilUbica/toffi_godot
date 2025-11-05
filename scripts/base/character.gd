@@ -18,10 +18,14 @@ func take_damage(amount: int):
 	current_health -= amount
 	if current_health <= 0:
 		die()
+	else:
+		animated_sprite.play("hurt")
 	
 	health_changed.emit(current_health)
 
 func die():
+	animated_sprite.play("dead")
+	await animated_sprite.animation_finished
 	queue_free()
 
 func get_texture_size() -> Vector2:
