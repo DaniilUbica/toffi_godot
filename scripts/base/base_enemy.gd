@@ -1,13 +1,28 @@
 @abstract class_name BaseEnemy2D
 extends BaseCharacter2D
 
+enum EnemyType {
+	MELEE = 0,
+	UNKNOWN = -1
+}
+
+const max_health_data_key := "max_health"
+const damage_data_key := "damage"
+
+var enemy_initial_data = {
+	EnemyType.MELEE: { "max_health": 15, "damage": 3 }
+}
+
 @onready var player := $"/root/main/Player" as BaseCharacter2D
+@onready var loot_manager := $"/root/main/LootManager"
 
 @export var enemy_attack_cooldown := 2.0
 
 var enemy_attack_timer: Timer
 var enemy_attack_range := 100
 var enemy_speed := 300.0
+var enemy_type := EnemyType.UNKNOWN
+var enemy_damage := 0
 
 var _can_attack := false
 
@@ -40,6 +55,19 @@ func _process(_delta: float) -> void:
 
 func _on_ready_to_attack() -> void:
 	_can_attack = true
+	
+func die():
+	if loot_manager:
+		loot_manager.spawn_loot(enemy_type, global_position)
+	queue_free()
+	
+func init_enemy():
+	var initial_data = enemy_initial_data.get(enemy_type)
+	if initial_data:
+		current_health = initial_data.get(max_health_data_key, max_health)
+		enemy_damage = initial_data.get(damage_data_key, enemy_damage)
+	else:
+		push_error("Enemy's initial data is null")
 
 func init_attack_timer() -> void:
 	enemy_attack_timer = Timer.new()

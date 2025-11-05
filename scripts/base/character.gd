@@ -21,6 +21,10 @@ func take_damage(amount: int):
 	
 	health_changed.emit(current_health)
 
+func heal(amount: int):
+	current_health = min(current_health + amount, max_health)
+	health_changed.emit(current_health)
+
 func die():
 	queue_free()
 
